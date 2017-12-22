@@ -28,10 +28,22 @@ var nombreTours = 1;
 var victoire = false;
 /* Creation fonction permettant l'affichage des informations */
 function affichageInformations(joueur) {
+if (victoire == false && nombreTours <= 9) {
   var prochainJoueur = document.getElementById('toursuivant');
   prochainJoueur.innerHTML = "Au joueur "+joueur.numero;
   var tourActuel = document.getElementById('nbrtours');
   tourActuel.innerHTML = "Tour "+nombreTours;
+} else if (victoire == false && nombreTours > 9) {
+  var prochainJoueur = document.getElementById('toursuivant');
+  prochainJoueur.innerHTML = "Partie terminée!";
+  var tourActuel = document.getElementById('nbrtours');
+  tourActuel.innerHTML = "Match nul!";
+} else {
+  var prochainJoueur = document.getElementById('toursuivant');
+  prochainJoueur.innerHTML = "Partie terminée!";
+  var tourActuel = document.getElementById('nbrtours');
+  tourActuel.innerHTML = "Le joueur "+joueurActuel.numero+" a gagné!";
+}
 }
 /* Creation de la fonction initialisation pour remettre les compteurs à zero */
 function initialisation() {
@@ -68,6 +80,7 @@ for(var i in combis){
 /* Creation fonction button qui s'active au clic des cellules */
 function button(numero) {
   var td = document.getElementById("cellule"+numero);
+
   if (td.className != joueur1.class && td.className != joueur2.class && victoire == false) {
     console.log("Le joueur " + joueurActuel.numero + ' joue la case '+numero+ ' pour le tour '+nombreTours);
     var index ="td"+numero;
@@ -78,7 +91,7 @@ function button(numero) {
 
     if(victoire == false) {
       if(nombreTours > 9) {
-        alert('Match nulle');
+        alert('Match nul');
       }
       if (joueurActuel.numero == '1') {
         joueurActuel = joueur2;
@@ -88,13 +101,20 @@ function button(numero) {
     } else {
       alert("Le joueur "+joueurActuel.numero+" a gagné!");
     }
+
     affichageInformations(joueurActuel);
 
   } else if (victoire == true) {
     alert("La partie est terminée! Le joueur "+joueurActuel.numero+" a gagné!");
+
+  } else if (nombreTours > 9) {
+    alert("La partie est terminée! Match nul!");
+
   } else {
     var index ="td"+numero;
     var caseJouee = zoneDeJeu[index];
     alert("La case "+numero+" est déjà jouée par le joueur "+caseJouee);
+
   }
+
 }
