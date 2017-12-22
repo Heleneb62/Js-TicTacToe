@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>TIC TAC TOE</title>
   </head>
-  <body>
+  <body onload="lancement()">
     <script type="text/javascript" src="js/script.js"></script>
     <div id="divconteneur">
         <h1>TIC TAC TOE</h1>
@@ -37,7 +37,11 @@
             </tr>
           </table>
         </div>
-        <h1>TIC TAC TOE</h1>
+        <div id="affichage">
+          <span id="toursuivant"></span>
+          <br/>
+          <span id="nbrtours"></span>
+        </div>
       </div>
     </body>
 </html>
