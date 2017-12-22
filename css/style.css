@@ -49,3 +49,18 @@ td {
   height: 80px;
   font-weight: bolder;
 }
+#partiegagnante {
+  z-index: 9999;
+  position: absolute;
+  height: 600px;
+  width: 800px;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  visibility: hidden;
+  font-weight: bolder;
+  font-size: 50px;
+  font-family: sans-serif;
+}
