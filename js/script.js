@@ -9,7 +9,7 @@ var joueur2 = {
 };
 /*Fonction du bouton fermer */
 function fermer() {
-  if (document.getElementById("partiegagnante").style.visibility = "visible") {
+  if (document.getElementById("partiegagnante").style.visibility == "visible") {
     document.getElementById("partiegagnante").style.visibility = "hidden";
   }
 }
@@ -108,6 +108,7 @@ function button(numero) {
       document.getElementById("partiegagnante").style.visibility = "visible";
       document.getElementById("partiegagnante").innerHTML = 'Le joueur '+joueurActuel.numero+' a gagné! <br> <img style="height: 200px; width: 200px;" src="img/win.jpg"/> <br> <button onclick="fermer()">FERMER</button>';
       alert("Le joueur "+joueurActuel.numero+" a gagné!");
+      console.log("Partie gagnée par le joueur "+joueurActuel.numero);
     }
 
     affichageInformations(joueurActuel);
